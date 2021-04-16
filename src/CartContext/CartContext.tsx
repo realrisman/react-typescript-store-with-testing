@@ -69,3 +69,5 @@ export const CartProvider = ({ children }: React.PropsWithChildren<{}>) => {
     </CartContext.Provider>
   );
 };
+
+export const useCart = () => React.useContext(CartContext);
