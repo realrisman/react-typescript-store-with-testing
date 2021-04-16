@@ -12,6 +12,9 @@ export const App = () => {
       <Header />
       <div className="container">
         <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
           <Route path="/cart">
             <Cart />
           </Route>
@@ -21,9 +24,7 @@ export const App = () => {
           <Route path="/order">
             <OrderSummary />
           </Route>
-          <Route path="/">
-            <Home />
-          </Route>
+          <Route>Page not found</Route>
         </Switch>
       </div>
     </React.Fragment>
