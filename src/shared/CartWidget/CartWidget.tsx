@@ -2,8 +2,12 @@ import { Link } from "react-router-dom";
 import { useCart } from "../../CartContext";
 import cart from "./cart.svg";
 
-export const CartWidget = () => {
-  const { products } = useCart();
+interface CartWidgetProps {
+  useCartHook?: () => Pick<ReturnType<typeof useCart>, "products">;
+}
+
+export const CartWidget = ({ useCartHook = useCart }: CartWidgetProps) => {
+  const { products } = useCartHook();
 
   return (
     <Link to="/cart" className="nes-badge is-icon">
