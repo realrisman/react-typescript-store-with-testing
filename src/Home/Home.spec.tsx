@@ -1,8 +1,19 @@
-import React from "react";
+import { render } from "@testing-library/react";
+import { Home } from "./Home";
 
 describe("Home", () => {
   describe("while loading", () => {
-    it.todo("renders categories with products");
+    it("renders loader", () => {
+      const mockUseProducts = () => ({
+        categories: [],
+        isLoading: true,
+        error: false,
+      });
+
+      const { container } = render(<Home useProductsHook={mockUseProducts} />);
+
+      expect(container.innerHTML).toMatch("Loading");
+    });
   });
 
   describe("with data", () => {
