@@ -21,6 +21,16 @@ describe("Home", () => {
   });
 
   describe("with error", () => {
-    it.todo("renders categories with products");
+    it("renders error message", () => {
+      const mockUseProducts = () => ({
+        categories: [],
+        isLoading: false,
+        error: true,
+      });
+
+      const { container } = render(<Home useProductsHook={mockUseProducts} />);
+
+      expect(container.innerHTML).toMatch("Error");
+    });
   });
 });
