@@ -7,7 +7,7 @@ export const CartWidget = () => {
 
   return (
     <Link to="/cart" className="nes-badge is-icon">
-      <span className="is-error">{products.length || 0}</span>
+      <span className="is-error">{products?.length || 0}</span>
       <img src={cart} width="64" height="64" alt="cart" />
     </Link>
   );
