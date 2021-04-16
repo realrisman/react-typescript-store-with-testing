@@ -22,6 +22,22 @@ app.post("/checkout", (req, res) => {
   res.json({ success: true, orderId: orders.length - 1 });
 });
 
+app.get("/order/:orderId", (req, res) => {
+  const { orderId } = req.params;
+  const order = orders[Number(orderId)];
+
+  if (order) {
+    return res.json({
+      success: true,
+      products: order.products,
+    });
+  } else {
+    return res.json({
+      success: false,
+    });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Store backend running on http://localhost:${port}`);
 });
