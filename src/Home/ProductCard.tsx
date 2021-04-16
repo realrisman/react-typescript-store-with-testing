@@ -1,11 +1,11 @@
 import { Product } from "../shared/types";
 import { useCart } from "../CartContext";
 
-interface ProductProps {
+export interface ProductCardProps {
   datum: Product;
 }
 
-export const ProductCard = ({ datum }: ProductProps) => {
+export const ProductCard = ({ datum }: ProductCardProps) => {
   const { addToCart, products } = useCart();
 
   const isInCart = !!products.find((product) => datum.name === product.name);
