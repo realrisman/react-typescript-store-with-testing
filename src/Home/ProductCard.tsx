@@ -8,7 +8,7 @@ export interface ProductCardProps {
 export const ProductCard = ({ datum }: ProductCardProps) => {
   const { addToCart, products } = useCart();
 
-  const isInCart = !!products.find((product) => datum.name === product.name);
+  const isInCart = !!products?.find((product) => datum.name === product.name);
 
   return (
     <div className="nes-container is-rounded item">
@@ -20,7 +20,7 @@ export const ProductCard = ({ datum }: ProductCardProps) => {
         alt="equipment"
       />
       <p>{datum.name}</p>
-      <p>{datum.price}</p>
+      <p>{datum.price} Zm</p>
       {isInCart ? (
         <button className="nes-btn is-disabled">Added to cart</button>
       ) : (
