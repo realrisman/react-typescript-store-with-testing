@@ -18,7 +18,18 @@ describe("ProductCard", () => {
   });
 
   describe("when product is in the cart", () => {
-    it.todo("the 'Add to cart' button is disabled");
+    it("the 'Add to cart' button is disabled", () => {
+      const mockUseCartHook = () => ({
+        addToCart: () => {},
+        products: [product],
+      });
+
+      const { getByRole } = render(
+        <ProductCard datum={product} useCartHook={mockUseCartHook as any} />
+      );
+
+      expect(getByRole("button")).toBeDisabled();
+    });
   });
 
   describe("when product is not in the cart", () => {

@@ -3,10 +3,17 @@ import { useCart } from "../CartContext";
 
 export interface ProductCardProps {
   datum: Product;
+  useCartHook?: () => Pick<
+    ReturnType<typeof useCart>,
+    "products" | "addToCart"
+  >;
 }
 
-export const ProductCard = ({ datum }: ProductCardProps) => {
-  const { addToCart, products } = useCart();
+export const ProductCard = ({
+  datum,
+  useCartHook = useCart,
+}: ProductCardProps) => {
+  const { addToCart, products } = useCartHook();
 
   const isInCart = !!products?.find((product) => datum.name === product.name);
 
@@ -22,7 +29,9 @@ export const ProductCard = ({ datum }: ProductCardProps) => {
       <p>{datum.name}</p>
       <p>{datum.price} Zm</p>
       {isInCart ? (
-        <button className="nes-btn is-disabled">Added to cart</button>
+        <button disabled className="nes-btn is-disabled">
+          Added to cart
+        </button>
       ) : (
         <button
           className="nes-btn is-primary"
