@@ -1,5 +1,18 @@
 import { fireEvent } from "@testing-library/react";
 import { Cart } from "./Cart";
+import { CartItemProps } from "./CartItem";
+
+jest.mock("./CartItem", () => ({
+  CartItem: ({ product }: CartItemProps) => {
+    const { name, price, image } = product;
+
+    return (
+      <div>
+        {name} {price} {image}
+      </div>
+    );
+  },
+}));
 
 describe("Cart", () => {
   describe("without products", () => {
@@ -31,7 +44,38 @@ describe("Cart", () => {
   });
 
   describe("with products", () => {
-    it.todo("renders cart products list with total price");
+    const products = [
+      {
+        name: "Product foo",
+        price: 100,
+        image: "/image/foo_source.png",
+      },
+      {
+        name: "Product bar",
+        price: 90,
+        image: "/image/bar_source.png",
+      },
+    ];
+
+    const stubCartHook = () => ({
+      products,
+      removeFromCart: () => {},
+      totalPrice: () => 190,
+    });
+
+    it("renders cart products list with total price", () => {
+      const { container } = renderWithRouter(() => (
+        <Cart useCartHook={stubCartHook} />
+      ));
+
+      expect(container.innerHTML).toMatch(
+        "Product foo 100 /image/foo_source.png"
+      );
+      expect(container.innerHTML).toMatch(
+        "Product bar 90 /image/bar_source.png"
+      );
+      expect(container.innerHTML).toMatch("Total: 190 Zm");
+    });
 
     describe("on 'go to checkout' click", () => {
       it.todo("redirects to '/checkout'");
