@@ -1,15 +1,10 @@
-import { CheckoutPayload } from "../shared/types";
 import * as yup from "yup";
-import { submitCheckout } from "../utils/api";
-import { useCart } from "../CartContext";
 import { useForm } from "react-hook-form";
 import { FormField } from "./FormField";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 interface CheckoutFormProps {
-  submit?: (
-    data: CheckoutPayload
-  ) => Promise<{ orderId: string | undefined; success?: boolean }>;
+  submit?: () => Promise<void>;
 }
 
 const validationSchema = yup.object().shape({
@@ -29,9 +24,8 @@ const validationSchema = yup.object().shape({
 });
 
 export const CheckoutForm = ({
-  submit = submitCheckout,
+  submit = async () => {},
 }: CheckoutFormProps) => {
-  const { clearCart, products } = useCart();
   const {
     register,
     handleSubmit,
@@ -41,14 +35,8 @@ export const CheckoutForm = ({
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = handleSubmit(async () => {
-    const { orderId } = await submit({ products });
-    clearCart();
-    window.location.assign(`/order/?orderId=${orderId}`);
-  });
-
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={handleSubmit(submit)}>
       <FormField
         placeholder="John Smith"
         type="text"

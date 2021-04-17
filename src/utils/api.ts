@@ -8,7 +8,7 @@ export const getProducts = () => {
     .catch(console.log);
 };
 
-export const submitCheckout = (data: CheckoutPayload) => {
+export const postCheckout = (data: CheckoutPayload) => {
   return fetch(`http://localhost:4000/checkout`, {
     method: "post",
     headers: {
