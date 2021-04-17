@@ -1,3 +1,4 @@
+import { fireEvent } from "@testing-library/react";
 import { Product } from "../shared/types";
 import { CartItem } from "./CartItem";
 
@@ -19,6 +20,15 @@ describe("CartItem", () => {
   });
 
   describe("on 'Remove' click", () => {
-    it.todo("calls passed in function");
+    it("calls passed in function", () => {
+      const removeFromCartMock = jest.fn();
+
+      const { getByText } = renderWithRouter(() => (
+        <CartItem product={product} removeFromCart={removeFromCartMock} />
+      ));
+
+      fireEvent.click(getByText("Remove"));
+      expect(removeFromCartMock).toBeCalledWith(product);
+    });
   });
 });
