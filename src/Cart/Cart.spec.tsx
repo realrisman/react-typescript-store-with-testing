@@ -1,3 +1,4 @@
+import { fireEvent } from "@testing-library/react";
 import { Cart } from "./Cart";
 
 describe("Cart", () => {
@@ -16,8 +17,16 @@ describe("Cart", () => {
       expect(container.innerHTML).toMatch("Your cart is empty.");
     });
 
-    describe("on 'Back to main page'", () => {
-      it.todo("redirects to '/");
+    describe("on 'Back to main page' click", () => {
+      it("redirects to '/'", () => {
+        const { getByText, history } = renderWithRouter(() => (
+          <Cart useCartHook={stubCartHook} />
+        ));
+
+        fireEvent.click(getByText("Back to main page."));
+
+        expect(history.location.pathname).toBe("/");
+      });
     });
   });
 
