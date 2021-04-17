@@ -1,6 +1,20 @@
+import { Cart } from "./Cart";
+
 describe("Cart", () => {
   describe("without products", () => {
-    it.todo("renders empty cart message");
+    const stubCartHook = () => ({
+      products: [],
+      removeFromCart: () => {},
+      totalPrice: () => 0,
+    });
+
+    it("renders empty cart message", () => {
+      const { container } = renderWithRouter(() => (
+        <Cart useCartHook={stubCartHook} />
+      ));
+
+      expect(container.innerHTML).toMatch("Your cart is empty.");
+    });
 
     describe("on 'Back to main page'", () => {
       it.todo("redirects to '/");
