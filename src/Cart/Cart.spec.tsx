@@ -78,7 +78,15 @@ describe("Cart", () => {
     });
 
     describe("on 'go to checkout' click", () => {
-      it.todo("redirects to '/checkout'");
+      it("redirects to '/checkout'", () => {
+        const { getByText, history } = renderWithRouter(() => (
+          <Cart useCartHook={stubCartHook} />
+        ));
+
+        fireEvent.click(getByText("Go to checkout"));
+
+        expect(history.location.pathname).toBe("/checkout");
+      });
     });
   });
 });
