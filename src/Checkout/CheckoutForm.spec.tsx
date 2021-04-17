@@ -1,5 +1,15 @@
+import { render } from "@testing-library/react";
+import { CheckoutForm } from "./CheckoutForm";
+
 describe("CheckoutForm", () => {
-  it.todo("renders correctly");
+  it("renders correctly", () => {
+    const { container } = render(<CheckoutForm />);
+
+    expect(container.innerHTML).toMatch("Cardholder's Name");
+    expect(container.innerHTML).toMatch("Card Number");
+    expect(container.innerHTML).toMatch("Expiration Date");
+    expect(container.innerHTML).toMatch("CVV");
+  });
 
   describe("with invalid inputs", () => {
     it.todo("show errors");
@@ -7,7 +17,7 @@ describe("CheckoutForm", () => {
 
   describe("with valid inputs", () => {
     describe("on place order button click", () => {
-      it("calls submit function with form data");
+      it.todo("calls submit function with form data");
     });
   });
 });
