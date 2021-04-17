@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import { Product } from "../shared/types";
 import { ProductCard } from "./ProductCard";
 
@@ -34,7 +34,20 @@ describe("ProductCard", () => {
 
   describe("when product is not in the cart", () => {
     describe("on 'Add to cart' click", () => {
-      it.todo("calls 'addToCard' function");
+      it("calls 'addToCard' function", () => {
+        const addToCart = jest.fn();
+        const mockUseCartHook = () => ({
+          addToCart,
+          products: [],
+        });
+
+        const { getByText } = render(
+          <ProductCard datum={product} useCartHook={mockUseCartHook} />
+        );
+
+        fireEvent.click(getByText("Add to cart"));
+        expect(addToCart).toHaveBeenCalledWith(product);
+      });
     });
   });
 });
