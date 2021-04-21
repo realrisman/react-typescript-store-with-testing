@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Loader } from "../shared/Loader";
+import { Loader } from "../shared/components/Loader";
 import { useOrder } from "./useOrder";
 
 interface OrderSummaryProps {
