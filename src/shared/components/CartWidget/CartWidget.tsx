@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../../CartContext";
-import cart from "./cart.svg";
+import cart from "../../assets/svg/cart.svg";
 
 interface CartWidgetProps {
   useCartHook?: () => Pick<ReturnType<typeof useCartContext>, "products">;
