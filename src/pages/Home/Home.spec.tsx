@@ -3,7 +3,7 @@ import { Category } from "../../shared/types";
 import { Home } from "./Home";
 import { ProductCardProps } from "../../shared/components/ProductCard";
 
-jest.mock("./ProductCard", () => ({
+jest.mock("../../shared/components/ProductCard", () => ({
   ProductCard: ({ datum }: ProductCardProps) => {
     const { name, price, image } = datum;
     return (
