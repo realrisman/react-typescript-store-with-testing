@@ -2,7 +2,7 @@ import { fireEvent, render } from "@testing-library/react";
 import { Loader } from "../../shared/components/Loader";
 import { OrderSummary } from "./OrderSummary";
 
-jest.mock("../shared/Loader", () => ({
+jest.mock("../../shared/components/Loader", () => ({
   Loader: jest.fn(() => null),
 }));
 
