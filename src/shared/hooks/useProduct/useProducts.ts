@@ -1,16 +1,17 @@
-import { getProducts } from "../../utils/api";
-import { Category } from "../../types";
 import React from "react";
 
-export const useProducts = () => {
+import { getProducts } from "../../utils/api";
+import { Category } from "./../../types";
+
+export const useProducts = (apiGetProducts = getProducts) => {
   const [categories, setCategories] = React.useState<Category[]>([]);
-  const [isLoading, setIsLoading] = React.useState<boolean>(true);
-  const [error, setError] = React.useState<boolean>(false);
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [error, setError] = React.useState(false);
 
   React.useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const data = await getProducts();
+        const data = await apiGetProducts();
         setCategories(data.categories || []);
       } catch (error) {
         setError(error);
@@ -18,7 +19,7 @@ export const useProducts = () => {
       setIsLoading(false);
     };
     fetchProducts();
-  }, []);
+  }, [apiGetProducts]);
 
   return { categories, isLoading, error };
 };
