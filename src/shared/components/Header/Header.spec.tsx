@@ -1,7 +1,9 @@
 import { fireEvent } from "@testing-library/react";
 import { Header } from "./Header";
 
-jest.mock("./CartWidget", () => ({ CartWidget: () => <div>Cart Widget</div> }));
+jest.mock("../CartWidget", () => ({
+  CartWidget: () => <div>Cart Widget</div>,
+}));
 
 describe("Header", () => {
   it("renders correctly", () => {
