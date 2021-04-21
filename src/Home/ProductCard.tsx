@@ -1,17 +1,17 @@
 import { Product } from "../shared/types";
-import { useCart } from "../CartContext";
+import { useCartContext } from "../CartContext";
 
 export interface ProductCardProps {
   datum: Product;
   useCartHook?: () => Pick<
-    ReturnType<typeof useCart>,
+    ReturnType<typeof useCartContext>,
     "products" | "addToCart"
   >;
 }
 
 export const ProductCard = ({
   datum,
-  useCartHook = useCart,
+  useCartHook = useCartContext,
 }: ProductCardProps) => {
   const { addToCart, products } = useCartHook();
 
