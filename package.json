@@ -60,6 +60,9 @@
     "ts-node": "^9.1.1"
   },
   "jest": {
-    "resetMocks": false
+    "resetMocks": false,
+    "coveragePathIgnorePatterns": [
+      "src/index.tsx"
+    ]
   }
 }
