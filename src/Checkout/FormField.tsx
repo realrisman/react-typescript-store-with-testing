@@ -6,6 +6,7 @@ interface FormError {
 
 interface FormFieldProps extends React.HTMLProps<HTMLInputElement> {
   label: string;
+  name: string;
   errors?: FormError;
   normalize?: (value: string) => string;
 }
@@ -23,14 +24,21 @@ export const FormField = React.forwardRef(
   ) => {
     return (
       <div className="nes-field">
-        <label htmlFor={name}>{label}</label>
+        <label id={`${name}-label`} htmlFor={name}>
+          {label}
+        </label>
         <input
+          aria-labelledby={`${name}-label`}
           name={name}
           {...inputProps}
           className={`nes-input ${errors && "is-error"}`}
-          onChange={(e) => (e.target.value = normalize(e.target.value))}
+          onChange={(e) => {
+            e.target.value = normalize(e.target.value);
+          }}
         />
-        {errors && <p className="note nes-text is-error">{errors.message}</p>}
+        {errors && (
+          <p className="note nes-text is-error">Error: {errors.message}</p>
+        )}
       </div>
     );
   }
