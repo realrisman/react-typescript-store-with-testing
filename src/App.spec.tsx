@@ -3,10 +3,10 @@ import { App } from "./App";
 import { render } from "@testing-library/react";
 import { Router } from "react-router-dom";
 
-jest.mock("./Home", () => ({ Home: () => <div>Home</div> }));
-jest.mock("./Cart", () => ({ Cart: () => <div>Cart</div> }));
-jest.mock("./Checkout", () => ({ Checkout: () => <div>Checkout</div> }));
-jest.mock("./OrderSummary", () => ({
+jest.mock("./pages/Home", () => ({ Home: () => <div>Home</div> }));
+jest.mock("./pages/Cart", () => ({ Cart: () => <div>Cart</div> }));
+jest.mock("./pages/Checkout", () => ({ Checkout: () => <div>Checkout</div> }));
+jest.mock("./pages/OrderSummary", () => ({
   OrderSummary: () => <div>Order Summary</div>,
 }));
 
