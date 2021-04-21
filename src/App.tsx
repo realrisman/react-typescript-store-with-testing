@@ -4,7 +4,7 @@ import { Cart } from "./Cart";
 import { Checkout } from "./Checkout";
 import { Home } from "./Home";
 import { OrderSummary } from "./OrderSummary";
-import { Header } from "./shared/Header";
+import { Header } from "./shared/components/Header";
 
 export const App = () => {
   return (
