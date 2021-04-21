@@ -10,16 +10,14 @@ describe("OrderSummary", () => {
   afterEach(jest.clearAllMocks);
 
   describe("while order data being loaded", () => {
-    // it("renders loader", () => {
-    //   const stubUseOrder = () => ({
-    //     isLoading: true,
-    //     order: undefined,
-    //   });
-    //   render(<OrderSummary useOrderHook={stubUseOrder} />);
-    //   expect(Loader).toHaveBeenCalled();
-    // });
-
-    it.todo("renders loader");
+    it("renders loader", () => {
+      const stubUseOrder = () => ({
+        isLoading: true,
+        order: undefined,
+      });
+      render(<OrderSummary useOrderHook={stubUseOrder} />);
+      expect(Loader).toHaveBeenCalled();
+    });
   });
 
   describe("when order is loaded", () => {
