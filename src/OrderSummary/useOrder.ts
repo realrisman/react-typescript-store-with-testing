@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getOrder } from "../utils/api";
+import { getOrder } from "../shared/utils/api";
 import { Product } from "./../shared/types";
 
 export interface Order {

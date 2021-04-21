@@ -1,5 +1,5 @@
 import { useCartContext } from "../CartContext";
-import { postCheckout } from "../utils/api";
+import { postCheckout } from "../shared/utils/api";
 import { CheckoutForm } from "./CheckoutForm";
 import { CheckoutList } from "./CheckoutList";
 

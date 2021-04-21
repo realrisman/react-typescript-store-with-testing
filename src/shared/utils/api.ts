@@ -1,4 +1,4 @@
-import { CheckoutPayload } from "./../shared/types";
+import { CheckoutPayload } from "../types";
 
 export const getProducts = async () => {
   try {

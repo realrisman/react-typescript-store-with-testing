@@ -1,4 +1,4 @@
-import { getProducts } from "./../utils/api";
+import { getProducts } from "../shared/utils/api";
 import { Category } from "./../shared/types";
 import React from "react";
 
