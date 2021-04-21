@@ -1,34 +1,22 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Loader } from "../shared/Loader";
-import { Order } from "../shared/types";
-import { getOrder } from "../utils/api";
+import { useOrder } from "./useOrder";
 
-const getOrderId = () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get("orderId");
-};
+interface OrderSummaryProps {
+  useOrderHook?: typeof useOrder;
+}
 
-export const OrderSummary = () => {
-  const [order, setOrder] = React.useState<Order>();
+export const OrderSummary = ({
+  useOrderHook = useOrder,
+}: OrderSummaryProps) => {
+  const { isLoading, order } = useOrderHook();
 
-  React.useEffect(() => {
-    const fetchData = async () => {
-      const orderId = getOrderId();
-      if (!orderId) {
-        return;
-      }
-
-      const order = await getOrder(orderId);
-      if (order.success) {
-        setOrder(order);
-      }
-    };
-    fetchData();
-  }, []);
+  if (isLoading) {
+    return <Loader />;
+  }
 
   if (!order) {
-    return <Loader />;
+    return <div>Couldn't load order info.</div>;
   }
 
   return (
