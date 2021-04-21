@@ -1,4 +1,4 @@
-## 🎥 Demonstartion
+## 🎥 Demonstration
 
 ### 🖥 Application
 ![demo-application](https://user-images.githubusercontent.com/9587306/115566712-b05c1500-a2e4-11eb-84cb-981150be2d01.gif)
