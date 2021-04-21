@@ -1,13 +1,13 @@
-import { useCart } from "../CartContext";
+import { useCartContext } from "../CartContext";
 import { postCheckout } from "../utils/api";
 import { CheckoutForm } from "./CheckoutForm";
 import { CheckoutList } from "./CheckoutList";
 
 interface CheckoutProps {
-  useCartHook?: typeof useCart;
+  useCartHook?: typeof useCartContext;
 }
 
-export const Checkout = ({ useCartHook = useCart }: CheckoutProps) => {
+export const Checkout = ({ useCartHook = useCartContext }: CheckoutProps) => {
   const { products, totalPrice, clearCart } = useCartHook();
 
   const submitCheckout = async () => {

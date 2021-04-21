@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../CartContext";
+import { useCartContext } from "../CartContext";
 import { Product } from "../shared/types";
 import { CartItem } from "./CartItem";
 
@@ -12,7 +12,7 @@ interface CartProps {
   };
 }
 
-export const Cart = ({ useCartHook = useCart }: CartProps) => {
+export const Cart = ({ useCartHook = useCartContext }: CartProps) => {
   const { products, removeFromCart, totalPrice } = useCartHook();
 
   if (!products.length) {
