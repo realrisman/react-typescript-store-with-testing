@@ -1,5 +1,5 @@
 import React from "react";
-import { useCart } from "./useCart";
+import { useCart } from "../useCart";
 
 type CartContextValue = ReturnType<typeof useCart>;
 
