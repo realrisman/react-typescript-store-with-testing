@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import { FormField } from "./FormField";
 
 describe("FormField", () => {
@@ -26,6 +26,20 @@ describe("FormField", () => {
   });
 
   describe("on change", () => {
-    it.todo("normalizes the input");
+    it("normalizes the input", () => {
+      const { getByLabelText } = render(
+        <FormField
+          label="Foo label"
+          name="foo"
+          errors={{ message: "Example error" }}
+          normalize={(value: string) => value.toUpperCase()}
+        />
+      );
+
+      const input = getByLabelText("Foo label") as HTMLInputElement;
+      fireEvent.change(input, { target: { value: "test" } });
+
+      expect(input.value).toEqual("TEST");
+    });
   });
 });
