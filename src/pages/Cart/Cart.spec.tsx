@@ -2,7 +2,7 @@ import { fireEvent } from "@testing-library/react";
 import { Cart } from "./Cart";
 import { CartItemProps } from "../../shared/components/CartItem";
 
-jest.mock("./CartItem", () => ({
+jest.mock("../../shared/components/CartItem", () => ({
   CartItem: ({ product }: CartItemProps) => {
     const { name, price, image } = product;
 
