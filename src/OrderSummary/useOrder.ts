@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getOrder } from "../shared/utils/api";
-import { Product } from "./../shared/types";
+import { Product } from "../shared/types";
 
 export interface Order {
   products: Product[];

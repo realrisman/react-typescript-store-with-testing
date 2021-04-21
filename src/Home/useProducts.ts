@@ -1,5 +1,5 @@
 import { getProducts } from "../shared/utils/api";
-import { Category } from "./../shared/types";
+import { Category } from "../shared/types";
 import React from "react";
 
 export const useProducts = () => {
