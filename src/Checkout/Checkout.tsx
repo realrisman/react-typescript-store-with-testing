@@ -1,4 +1,4 @@
-import { useCartContext } from "../CartContext";
+import { useCartContext } from "../shared/hooks/CartContext";
 import { postCheckout } from "../shared/utils/api";
 import { CheckoutForm } from "./CheckoutForm";
 import { CheckoutList } from "./CheckoutList";

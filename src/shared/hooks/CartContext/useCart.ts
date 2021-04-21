@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Product } from "../shared/types";
+import { Product } from "../../types";
 
 const saveProducts = (products: Product[]) => {
   localStorage.setItem("products", JSON.stringify(products));

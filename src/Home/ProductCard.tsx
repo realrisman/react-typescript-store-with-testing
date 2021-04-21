@@ -1,5 +1,5 @@
 import { Product } from "../shared/types";
-import { useCartContext } from "../CartContext";
+import { useCartContext } from "../shared/hooks/CartContext";
 
 export interface ProductCardProps {
   datum: Product;

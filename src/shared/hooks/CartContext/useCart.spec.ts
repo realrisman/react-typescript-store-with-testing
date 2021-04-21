@@ -1,6 +1,6 @@
 import { useCart } from "./useCart";
 import { renderHook } from "@testing-library/react-hooks";
-import { Product } from "../shared/types";
+import { Product } from "../../types";
 import TestRenderer from "react-test-renderer";
 const { act } = TestRenderer;
 

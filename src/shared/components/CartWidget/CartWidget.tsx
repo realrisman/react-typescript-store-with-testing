@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useCartContext } from "../../../CartContext";
+import { useCartContext } from "../../hooks/CartContext";
 import cart from "../../assets/svg/cart.svg";
 
 interface CartWidgetProps {
