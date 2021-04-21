@@ -1,5 +1,5 @@
 import { ProductCard } from "../shared/components/ProductCard";
-import { useProducts } from "./useProducts";
+import { useProducts } from "../shared/hooks/useProduct";
 
 interface HomeProps {
   useProductsHook?: () => Pick<
