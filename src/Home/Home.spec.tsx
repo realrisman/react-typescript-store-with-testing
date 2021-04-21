@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { Category } from "../shared/types";
 import { Home } from "./Home";
-import { ProductCardProps } from "./ProductCard";
+import { ProductCardProps } from "../shared/components/ProductCard";
 
 jest.mock("./ProductCard", () => ({
   ProductCard: ({ datum }: ProductCardProps) => {

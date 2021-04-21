@@ -1,5 +1,5 @@
 import { fireEvent, render } from "@testing-library/react";
-import { Product } from "../shared/types";
+import { Product } from "../../types";
 import { ProductCard } from "./ProductCard";
 
 const product: Product = {

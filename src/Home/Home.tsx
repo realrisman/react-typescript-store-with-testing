@@ -1,4 +1,4 @@
-import { ProductCard } from "./ProductCard";
+import { ProductCard } from "../shared/components/ProductCard";
 import { useProducts } from "./useProducts";
 
 interface HomeProps {
