@@ -1,7 +1,7 @@
 import { Checkout } from "./Checkout";
 import { render } from "@testing-library/react";
 import { CheckoutList } from "./CheckoutList";
-import { CheckoutForm } from "./CheckoutForm";
+import { CheckoutForm } from "../shared/components/CheckoutForm";
 
 jest.mock("./CheckoutForm", () => ({
   CheckoutForm: jest.fn(() => null),

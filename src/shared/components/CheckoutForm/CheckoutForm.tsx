@@ -1,6 +1,6 @@
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
-import { FormField } from "./FormField";
+import { FormField } from "../../../Checkout/FormField";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 interface CheckoutFormProps {
