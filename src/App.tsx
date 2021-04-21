@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router";
 import { Cart } from "./pages/Cart";
-import { Checkout } from "./Checkout";
+import { Checkout } from "./pages/Checkout";
 import { Home } from "./pages/Home";
 import { OrderSummary } from "./OrderSummary";
 import { Header } from "./shared/components/Header";
