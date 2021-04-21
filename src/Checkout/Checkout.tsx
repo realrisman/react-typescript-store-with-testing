@@ -1,7 +1,7 @@
 import { useCartContext } from "../shared/hooks/CartContext";
 import { postCheckout } from "../shared/utils/api";
 import { CheckoutForm } from "../shared/components/CheckoutForm";
-import { CheckoutList } from "./CheckoutList";
+import { CheckoutList } from "../shared/components/CheckoutList";
 
 interface CheckoutProps {
   useCartHook?: typeof useCartContext;

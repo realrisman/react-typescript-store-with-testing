@@ -1,4 +1,4 @@
-import { Product } from "../shared/types";
+import { Product } from "../../types";
 
 interface CheckoutListProps {
   products: Product[];
