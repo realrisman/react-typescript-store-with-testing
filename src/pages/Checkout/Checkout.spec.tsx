@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import { CheckoutList } from "../../shared/components/CheckoutList/CheckoutList";
 import { CheckoutForm } from "../../shared/components/CheckoutForm";
 
-jest.mock("./CheckoutForm", () => ({
+jest.mock("../../shared/components/CheckoutForm", () => ({
   CheckoutForm: jest.fn(() => null),
 }));
 
