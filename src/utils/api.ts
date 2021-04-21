@@ -1,33 +1,36 @@
 import { CheckoutPayload } from "./../shared/types";
 
-export const getProducts = () => {
-  return fetch("http://localhost:4000/products")
-    .then((res) => {
-      return res.json();
-    })
-    .catch(console.log);
+export const getProducts = async () => {
+  try {
+    const res = await fetch("http://localhost:4000/products");
+    return await res.json();
+  } catch (message) {
+    return console.log(message);
+  }
 };
 
-export const postCheckout = (data: CheckoutPayload) => {
-  return fetch(`http://localhost:4000/checkout`, {
-    method: "post",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
+export const postCheckout = async (data: CheckoutPayload) => {
+  try {
+    const res = await fetch(`http://localhost:4000/checkout`, {
+      method: "post",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
 
-    body: JSON.stringify(data),
-  })
-    .then((res) => {
-      return res.json();
-    })
-    .catch(console.log);
+      body: JSON.stringify(data),
+    });
+    return await res.json();
+  } catch (message) {
+    return console.log(message);
+  }
 };
 
-export const getOrder = (id: string) => {
-  return fetch(`http://localhost:4000/order/${id}`)
-    .then((res) => {
-      return res.json();
-    })
-    .catch(console.log);
+export const getOrder = async (id: string) => {
+  try {
+    const res = await fetch(`http://localhost:4000/order/${id}`);
+    return await res.json();
+  } catch (message) {
+    return console.log(message);
+  }
 };
