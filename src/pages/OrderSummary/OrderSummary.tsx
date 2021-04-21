@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { Loader } from "../shared/components/Loader";
-import { useOrder } from "../shared/hooks/useOrder";
+import { Loader } from "../../shared/components/Loader";
+import { useOrder } from "../../shared/hooks/useOrder";
 
 interface OrderSummaryProps {
   useOrderHook?: typeof useOrder;
