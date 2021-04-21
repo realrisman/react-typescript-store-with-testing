@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router";
-import { Cart } from "./Cart";
+import { Cart } from "./pages/Cart";
 import { Checkout } from "./Checkout";
 import { Home } from "./pages/Home";
 import { OrderSummary } from "./OrderSummary";

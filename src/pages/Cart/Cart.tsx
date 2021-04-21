@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useCartContext } from "../shared/hooks/CartContext";
-import { Product } from "../shared/types";
-import { CartItem } from "../shared/components/CartItem";
+import { useCartContext } from "../../shared/hooks/CartContext";
+import { Product } from "../../shared/types";
+import { CartItem } from "../../shared/components/CartItem";
 
 interface CartProps {
   useCartHook?: () => {
