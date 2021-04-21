@@ -1,5 +1,5 @@
 import { fireEvent } from "@testing-library/react";
-import { Product } from "../shared/types";
+import { Product } from "../../types";
 import { CartItem } from "./CartItem";
 
 describe("CartItem", () => {
