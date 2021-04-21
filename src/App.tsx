@@ -1,9 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router";
-import { Cart } from "./pages/Cart";
-import { Checkout } from "./pages/Checkout";
-import { Home } from "./pages/Home";
-import { OrderSummary } from "./pages/OrderSummary";
+import Routes from "./routes";
 import { Header } from "./shared/components/Header";
 
 export const App = () => {
@@ -11,21 +7,7 @@ export const App = () => {
     <React.Fragment>
       <Header />
       <div className="container">
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/cart">
-            <Cart />
-          </Route>
-          <Route path="/checkout">
-            <Checkout />
-          </Route>
-          <Route path="/order">
-            <OrderSummary />
-          </Route>
-          <Route>Page not found</Route>
-        </Switch>
+        <Routes />
       </div>
     </React.Fragment>
   );
