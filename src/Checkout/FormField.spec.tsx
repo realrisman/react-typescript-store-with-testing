@@ -13,7 +13,16 @@ describe("FormField", () => {
   });
 
   describe("with error", () => {
-    it.todo("render error message");
+    it("render error message", () => {
+      const { getByText } = render(
+        <FormField
+          label="Foo label"
+          name="foo"
+          errors={{ message: "Example error" }}
+        />
+      );
+      expect(getByText("Error: Example error")).toBeInTheDocument();
+    });
   });
 
   describe("on change", () => {
